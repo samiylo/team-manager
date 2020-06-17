@@ -1,0 +1,14 @@
+<h1>Projects</h1>
+
+<a href="/users/most_projects"> Click here to see who has the most projects!</a>
+    <% @projects.all.each do |project| %>
+        <div class="container">
+
+
+        <h2>  <%= link_to "#{project.name}", project_path(project)%></h2>
+
+        <% tasks = project.tasks %>
+
+        <%= render partial: 'tasks/tasklist', :locals => {:@tasks => tasks}%>
+        </div>
+<% end  %>

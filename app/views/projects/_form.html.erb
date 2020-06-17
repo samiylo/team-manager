@@ -1,0 +1,28 @@
+<% if @project.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+        <%= pluralize(@project.errors.count, "error") %>
+        This post did could not be saved:
+        </h2>
+
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <%= form_for @project do |f| %>
+    <div class="form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name %>
+    </div>
+
+
+
+    <div class="actions">
+        <%= f.submit "Create", class: "btn btn-primary" %>
+    </div>
+
+<% end  %>
