@@ -1,4 +1,4 @@
-class StaticController < ApplicationCOntroller
+class StaticController < ApplicationController
     layout 'sessions'
     
     def welcome
