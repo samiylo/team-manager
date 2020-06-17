@@ -1,0 +1,16 @@
+<h1>Welcome, <%= @user.username %>  </h1>
+
+<h2>Here are your tasks:</h2>
+
+
+
+<ul>
+    <% @tasks.all.each do |task| %>
+
+        <li><%= task.description %></li>
+    <% end  %>
+</ul>
+
+
+
+<%= link_to "See all Projects/Tasks", projects_path %>
