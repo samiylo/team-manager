@@ -12,6 +12,17 @@ Rails.application.routes.draw do
 
   resources :tasks
 
+  get '/signout', to: 'sessions#destroy'
+
+  get '/tasks/:id/complete', to: "tasks#complete"
+
+  #get 'tasks/:id/delete', to: "tasks#delete"
+
+  get '/auth/facebook/callback' => 'sessions#create'
+
+  # get 'projects/:id/delete', to: "projects#delete"
+
+  get '/users/most_projects', to: "users#most_projects"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
