@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   root "static#welcome"
 
-  resources :sessions
 
+
+  resources :sessions
+  
   resources :users, only: [:new, :create] do
     resources :tasks, only: [:index, :show, :new]
   end
@@ -16,13 +18,11 @@ Rails.application.routes.draw do
 
   get '/tasks/:id/complete', to: "tasks#complete"
 
-  #get 'tasks/:id/delete', to: "tasks#delete"
-
   get '/auth/facebook/callback' => 'sessions#create'
 
-  # get 'projects/:id/delete', to: "projects#delete"
-
   get '/users/most_projects', to: "users#most_projects"
+
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
