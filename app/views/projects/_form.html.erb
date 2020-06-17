@@ -14,15 +14,8 @@
     <% end %>
 
     <%= form_for @project do |f| %>
-    <div class="form-group">
         <%= f.label :name, "Name" %>
         <%= f.text_field :name %>
-    </div>
-
-
-
-    <div class="actions">
         <%= f.submit "Create", class: "btn btn-primary" %>
-    </div>
 
 <% end  %>

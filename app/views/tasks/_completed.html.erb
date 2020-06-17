@@ -1,0 +1,23 @@
+<table style="width:100%">
+<tr>
+    <th>Task</th>
+    <th>Due Date </th>
+    <th>Assigned To</th>
+    <th>Delete</th>
+    <th>Complete<th>
+</tr>
+
+<% @tasks.all.each do |task| %>
+<% if task.completed %>
+    <tr>
+        <td><%= task.description %></td>
+        <td> <%= task.due_date.strftime("%B %d, %Y") unless task.due_date.nil?  %> </td>
+        <td> <%= task.user.username  %> </td>
+        <td> <%=  link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+        <td> Completed </td>
+    </tr>
+    <% end %>
+
+<% end  %>
+
+</table>

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     def new
         if logged_in
-            redirect_to project_path
+            redirect_to projects_path
         else
             @user = User.new 
         end
@@ -14,13 +14,13 @@ class SessionsController < ApplicationController
             @user = User.find_or_create_by_omniauth(auth_hash)
             session[:user_id] = @user.id
 
-            redirect_to project_path
+            redirect_to projects_path
         else
             @user = User.find_by(email: params[:user][:email])
 
             if @user && @user.authenticate(params[:user][:password])
                 session[:user_id] = @user.id
-                redirect_to project_path
+                redirect_to projects_path
             else
                 redirect_to new_session_path
             end
