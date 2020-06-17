@@ -1201,3 +1201,17 @@ ActionView::MissingTemplate (Missing template users/new, application/new with {:
 ):
   
 app/controllers/users_controller.rb:9:in `new'
+Started GET "/users/new" for ::1 at 2020-06-17 13:46:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 6979)
+
+
+  
+ActionView::MissingTemplate (Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/samiylokryshu/Flatiron/rails_project/team-manager/app/views"
+  * "/Users/samiylokryshu/.rvm/gems/ruby-2.6.1/gems/actiontext-6.0.3.1/app/views"
+  * "/Users/samiylokryshu/.rvm/gems/ruby-2.6.1/gems/actionmailbox-6.0.3.1/app/views"
+):
+  
+app/controllers/users_controller.rb:9:in `new'
