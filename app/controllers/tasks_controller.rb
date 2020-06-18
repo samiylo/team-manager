@@ -42,7 +42,12 @@ class TasksController < ApplicationController
     end
     
     def edit
-        #@task = Task.find(params[:id])
+        # binding.pry 
+        # @task = Task.find(params[:id])
+        if current_user.id == @task.user_id
+        else 
+            redirect_to projects_path
+        end
     end
     
     def update
@@ -62,8 +67,13 @@ class TasksController < ApplicationController
     end
     
     def destroy
-        @task.destroy
-        redirect_to projects_path
+        if current_user.id == @task.user_id
+            @task.destroy
+            redirect_to projects_path
+        else
+            redirect_to projects_path
+        end
+
     end
 
     private
