@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        
         @tasks = @project.tasks
+        
     end
 
     def new
@@ -25,7 +27,7 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-
+        
     end
 
     def update

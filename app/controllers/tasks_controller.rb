@@ -47,6 +47,7 @@ class TasksController < ApplicationController
         if current_user.id == @task.user_id
         else 
             redirect_to projects_path
+            flash[:notice] = "You can only make changes to your Tasks."
         end
     end
     
@@ -62,8 +63,13 @@ class TasksController < ApplicationController
     end
     
     def complete
-        @task.update(completed: true)
-        redirect_to projects_path
+        if current_user.id == @task.user_id
+            @task.update(completed: true)
+            redirect_to projects_path
+        else
+            redirect_to projects_path
+            flash[:notice] = "You can only complete your projects."
+        end
     end
     
     def destroy
@@ -72,6 +78,7 @@ class TasksController < ApplicationController
             redirect_to projects_path
         else
             redirect_to projects_path
+            flash[:notice] = "You can only delete your own tasks."
         end
 
     end
