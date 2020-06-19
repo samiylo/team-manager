@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to my Team Manager Application.
+To get the application started:
+- Run 'bundle install'
+- Run 'rake db:migrate'
+- For facebook login you must add your own .env file
+- Finally Run 'rails -s' to start the server on local host.
 
-Things you may want to cover:
+Featured functions in the build:
 
-* Ruby version
+* User permissions including Admin.
 
-* System dependencies
+* Full Login integration with seperate users.
 
-* Configuration
+* Users can Interact with other users, projects and tasks.
 
-* Database creation
+* Login with Facebook option
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -16718,3 +16718,158 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.9ms | Allocations: 8895)
 
 
+Started GET "/projects" for ::1 at 2020-06-19 02:05:57 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:4
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 23.2ms | Allocations: 14708)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 2.3ms | Allocations: 1668)
+  Rendered projects/index.html.erb within layouts/application (Duration: 32.2ms | Allocations: 21662)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 42ms (Views: 37.7ms | ActiveRecord: 1.7ms | Allocations: 28849)
+
+
+Started GET "/projects/new" for ::1 at 2020-06-19 02:05:59 -0500
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.2ms | Allocations: 634)
+  Rendered projects/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 945)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.1ms | Allocations: 5815)
+
+
+Started GET "/users/2/tasks" for ::1 at 2020-06-19 02:06:00 -0500
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:7:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:8:in `index'
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:18
+  Rendered tasks/_tasklist.html.erb (Duration: 5.2ms | Allocations: 2150)
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/tasks/_completed.html.erb:10
+  Rendered tasks/_completed.html.erb (Duration: 1.6ms | Allocations: 849)
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3600)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 16.7ms | ActiveRecord: 2.5ms | Allocations: 10328)
+
+
+Started GET "/tasks" for ::1 at 2020-06-19 02:06:01 -0500
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 19.1ms | Allocations: 3951)
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/_completed.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/_completed.html.erb:15
+  Rendered tasks/_completed.html.erb (Duration: 3.1ms | Allocations: 1382)
+  Rendered tasks/index.html.erb within layouts/application (Duration: 23.3ms | Allocations: 5461)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 1.8ms | Allocations: 10135)
+
+
+Started GET "/tasks/new" for ::1 at 2020-06-19 02:06:03 -0500
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/tasks/_form.html.erb:34
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/tasks/_form.html.erb:44
+  Rendered tasks/_form.html.erb (Duration: 10.3ms | Allocations: 3505)
+  Rendered tasks/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3792)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.6ms | Allocations: 8667)
+
+
+Started GET "/projects" for ::1 at 2020-06-19 02:06:04 -0500
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:4
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 9.4ms | Allocations: 1673)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 3.1ms | Allocations: 1667)
+  Rendered projects/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 4233)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 2.5ms | Allocations: 8912)
+
+
+Started GET "/users/most_projects" for ::1 at 2020-06-19 02:06:06 -0500
+Processing by UsersController#most_projects as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "COUNT(*) DESC". Non-attribute arguments will be disallowed in Rails 6.1. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from block in <class:User> at /Users/samiylokryshu/Flatiron/rails_project/team-manager/app/models/user.rb:10)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tasks" ON "tasks"."user_id" = "users"."id" INNER JOIN "projects" ON "projects"."id" = "tasks"."project_id" GROUP BY "user_id" ORDER BY COUNT(*) DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:10:in `block in <class:User>'
+  Rendering users/most_projects.html.erb within layouts/application
+  Rendered users/most_projects.html.erb within layouts/application (Duration: 0.7ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 16ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 7989)
+
+
+Started GET "/projects" for ::1 at 2020-06-19 02:06:09 -0500
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:4
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 8.9ms | Allocations: 1673)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 3]]
+  ↳ app/views/tasks/_tasklist.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tasks/_tasklist.html.erb:20
+  Rendered tasks/_tasklist.html.erb (Duration: 3.0ms | Allocations: 1667)
+  Rendered projects/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 4232)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4:in `current_user'
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 1.6ms | Allocations: 8903)
+
+
