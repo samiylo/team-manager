@@ -42,9 +42,7 @@ class TasksController < ApplicationController
     end
     
     def edit
-        # binding.pry 
-        # @task = Task.find(params[:id])
-        if current_user.id == @task.user_id
+        if authorized
         else 
             redirect_to projects_path
             flash[:notice] = "You can only make changes to your Tasks."
@@ -52,18 +50,15 @@ class TasksController < ApplicationController
     end
     
     def update
-    
         if @task.update(task_params)
-    
             redirect_to projects_path
         else
             render :edit
         end
-    
     end
     
     def complete
-        if current_user.id == @task.user_id
+        if authorized
             @task.update(completed: true)
             redirect_to projects_path
         else
@@ -73,7 +68,7 @@ class TasksController < ApplicationController
     end
     
     def destroy
-        if current_user.id == @task.user_id
+        if authorized
             @task.destroy
             redirect_to projects_path
         else

@@ -7,5 +7,9 @@ class ApplicationController < ActionController::Base
         !!session[:user_id]
     end
 
-    helper_method :current_user, :logged_in
+    def authorized
+        current_user.id == @task.user_id || current_user.admin 
+    end
+
+    helper_method :current_user, :logged_in, :authorized
 end

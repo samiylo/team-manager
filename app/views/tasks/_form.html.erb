@@ -17,22 +17,28 @@
 
 <br>
 
+<div class="container">
+
 <%= form_for(@task) do |f| %>
 
+  <div class="center-block" >
     <%= f.label :description, "Description" %>
     <%= f.text_field :description, class: "form-control" %>
-
-
+  </div>
+  <br>
+  <div>
     <%= f.label :due_date, "Due date"%>
     <%= f.date_select :due_date, class: "form-control" %>
-
-
-
+  </div>
+  <br>
+  <div>
     <%= f.label :project_id, "Select the Project for this task:" %><br>
     <%= f.collection_select :project_id, Project.all, :id, :name %>
+  </div>
 
+</div>
 
-
+<br>
 
     <% if @user %>
         <%= f.hidden_field :user_id  %>

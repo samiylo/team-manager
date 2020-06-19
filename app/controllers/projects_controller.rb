@@ -7,9 +7,7 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        
         @tasks = @project.tasks
-        
     end
 
     def new
@@ -17,7 +15,6 @@ class ProjectsController < ApplicationController
     end
 
     def create
-
         @project = Project.new(project_params)
         if @project.save
             redirect_to projects_path
@@ -31,7 +28,6 @@ class ProjectsController < ApplicationController
     end
 
     def update
-
         if @project.update(project_params)
             redirect_to projects_path
         else

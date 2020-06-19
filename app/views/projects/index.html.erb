@@ -4,7 +4,6 @@
     <% @projects.all.each do |project| %>
         <div class="container">
 
-
         <h2>  <%= link_to "#{project.name}", project_path(project)%></h2>
 
         <% tasks = project.tasks %>
