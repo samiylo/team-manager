@@ -13,8 +13,6 @@
   </div>
 <% end %>
 
-
-
 <br>
 
 <div class="container">
@@ -35,7 +33,6 @@
     <%= f.label :project_id, "Select the Project for this task:" %><br>
     <%= f.collection_select :project_id, Project.all, :id, :name %>
   </div>
-
 </div>
 
 <br>
@@ -43,11 +40,9 @@
     <% if @user %>
         <%= f.hidden_field :user_id  %>
     <% else  %>
-
         <%= f.label :user_id, "Select the User for this task:" %><br>
         <%= f.collection_select :user_id, User.all, :id, :username %>
     <% end %>
-
 
     <%= f.submit "Submit", class: "btn btn-primary" %>
 

@@ -3,7 +3,6 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:edit, :update, :destroy, :complete]
 
     def index
-
         if params[:user_id]
             if User.find(params[:user_id]) == current_user
                 @user = User.find(params[:user_id])
@@ -26,12 +25,9 @@ class TasksController < ApplicationController
             @user = nil
             @task = Task.new
         end
-    
-    
     end
     
     def create
-    
         @task = Task.new(task_params)
     
         if @task.save
@@ -75,7 +71,6 @@ class TasksController < ApplicationController
             redirect_to projects_path
             flash[:notice] = "You can only delete your own tasks."
         end
-
     end
 
     private
