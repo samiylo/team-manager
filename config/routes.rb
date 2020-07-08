@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :show, :new]
   end
 
-  resources :projects
+  resources :projects do 
+    resources :tasks, only: [:new]
+  end
 
   resources :tasks
 
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   get '/users/most_projects', to: "users#most_projects"
+
 
 
 

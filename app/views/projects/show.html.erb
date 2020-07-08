@@ -1,6 +1,9 @@
 <h1>
-<%= @project.name %>
+<%= @project.name %> 
 </h1>
+
+<p> <%= link_to "Add task to project", new_project_task_url(@project) %></p>
+
 <% if current_user.id == @tasks[0].user_id || current_user.admin %>
     <%= link_to "Edit Project", edit_project_path(@project) %>
 
